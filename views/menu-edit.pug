@@ -1,0 +1,32 @@
+extends layout
+
+block main-content 
+  h1.page-title Edit menu link
+  form(method="post", action="/admin/menu/edit/submit")
+    input(type="hidden", name="linkId", value=editLink._id)
+    div 
+      label(for="wgt") Weight: 
+      input(type="number", id="wgt", name="editWeight", 
+       value=editLink.weight)
+      -//add label/input for the weight prepopulated with the selected link's weight
+
+    div 
+      label(for="path") Path: 
+      input(type="text", id="path", name="editPath", value=editLink.path)
+      -//add label/input for the path (pre-populated)
+
+    div 
+      -//add label/input for the name (prepopulated)
+      label(for="link-name") Name: 
+      input(type="text", id="link-name", name="editName",value=editLink.name)
+    button(type="submit") Update link
+
+
+
+
+//- Add/complete the page route (/admin/menu/edit) code and the template to display the edit form for a menu link (selected by _id).
+
+//- This editLink() function will be used in the code for step 3.
+//- Complete the code for the edit form processing (i.e. extracting the form content and executing an update via editLink(filter, link)).
+
+

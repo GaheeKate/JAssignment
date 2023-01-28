@@ -1,0 +1,60 @@
+extends layout 
+
+
+block append scripts 
+  script(src="home.js")
+
+block main-content 
+    h1 Canada’s #1 healthful meal kit
+    p Welcome! You have arrived at our Korean meal kit website. We offer delicious Korean dishes with the best ingredients and easy cooking methods. Enjoy your shopping!
+    h2 Weekly selections
+    div.container.text-center
+      .slide_wrapper 
+        ul.slides 
+          li 
+            img(src="/img/chicken-soup-gf61adee8c_640.jpg", alt="")
+          li 
+            img(src="/img/anh-nguyen-kcA-c3f_3FE-unsplash.jpg", alt="")
+          li 
+            img(src="/img/delaney-van-pmTMvAd8akU-unsplash.jpg", alt="")
+          li 
+            img(src="/img/delicious-ga951b72f0_640.jpg", alt="")
+          li 
+            img(src="/img/ehimetalor-akhere-unuabona-Zh0mYmMBZjQ-unsplash.jpg", alt="")
+          li 
+            img(src="/img/filippo-faruffini-M1M9PVArnlE-unsplash.jpg", alt="")
+          li 
+            img(src="/img/i-g5e3bea22b_640.jpg", alt="")
+      .controls
+        .btn-group(role='group', aria-label='Basic example')
+          button#prev.btn.btn-primary(type='button') prev
+          button#next.btn.btn-primary(type='button') next
+
+
+
+    div.container-sm
+      h2 Our Chefs
+      .row.row-cols-1.row-cols-md-3.g-4
+        .col
+          .card
+            img.card-img-top(src="/img/chef-1.jpg", alt="")
+            .card-body
+              h5.card-title Card title
+              p.card-text
+                | This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+        .col
+          .card
+            img.card-img-top(src="/img/chef-2.jpg", alt="")
+            .card-body
+              h5.card-title Card title
+              p.card-text
+                | This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
+        .col
+          .card
+            img.card-img-top(src="/img/chef-3.jpg", alt="")
+            .card-body
+              h5.card-title Card title
+              p.card-text
+                | This is a longer card with supporting text below as a natural lead-in to additional content.
+
+        
