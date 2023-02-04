@@ -4,7 +4,8 @@ const path = require("path");
 const { MongoClient, ObjectId } = require("mongodb");
 
 //Mongo config stuff
-const dbUrl = "mongodb://127.0.0.1:27017";
+//"mongodb://127.0.0.1:27017";
+const dbUrl = "mongodb+srv://testdbuser:dChpFaFccyA53XmT@cluster0.wguyhoj.mongodb.net/testdb?retryWrites=true&w=majority"
 const client = new MongoClient(dbUrl);
 
 //set up Express app
@@ -21,10 +22,27 @@ app.use(express.static(path.join(__dirname, "public")));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
+
+var linkss = [
+  {
+    name: "Home",
+    path: "/"
+  },
+  {
+    name: "About",
+    path: "/about"
+  },
+  {
+    name: "About",
+    path: "/about"
+  }
+];
+
 //PAGE ROUTES
 app.get("/", async (request, response) => {
   links = await getLinks();
-  response.render("index", { title: "Home", menu: links });
+  response.render("index", { title: "Home", menu: links, uu: linkss });
+
 });
 app.get("/about", async (request, response) => {
   links = await getLinks();
@@ -38,6 +56,8 @@ app.get("/admin/menu/add", async (request, response) => {
   links = await getLinks();
   response.render("menu-add", { title: "Add menu link", menu: links });
 });
+
+
 
 
 app.get("/admin/menu/edit", async (request, response) => {
@@ -102,6 +122,28 @@ async function getLinks() {
   res = await results.toArray(); //convert to an array
   return res;
 }
+
+
+
+
+
+app.get("/", async (request, response) => {
+  list = await getList();
+  response.render("index", { title: "Home", lists: list });
+});
+
+
+
+
+
+/* Function to select all documents from menuList. */
+async function getList() {
+  db = await connection();
+  var results = db.collection("menuList").find({});
+  list = await results.toArray(); //convert to an array
+  return list;
+}
+
 /* Function to insert a new document into menuLinks. */
 async function addLink(link) {
   db = await connection();
