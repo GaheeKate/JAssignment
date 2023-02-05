@@ -3,21 +3,27 @@ extends layout
 block append scripts 
   //add more scripts to the scripts block from layout.pug
   script(src="/about.js")
+  script(src="home.js")
+
 
 block main-content 
-  h1.page-title #{title}
-    p Korean food is known for its bold flavors and use of a variety of ingredients. Some of the key elements that make Korean food unique include:
-    ol 
-        li Kimchi: a fermented vegetable dish that is often served as a side dish and is known for its spicy and tangy flavor.
+    h1.margin #{title}
+    p Order your favorite dishes from our fresh recipes every week
 
-        li Gochujang: a spicy red pepper paste that is used as a base for many Korean dishes such as bibimbap and jjigae.
 
-        li Grilled meats: Korean barbecue, or "bulgogi" is a popular dish that features thinly sliced marinated meats that are grilled to perfection.
-
-        li Noodles and rice: Korean cuisine features a variety of noodle and rice dishes such as "japchae" and "bibimbap" that are both delicious and filling.
-
-        li Fresh ingredients: Korean food often features a variety of fresh vegetables such as lettuce, sprouts, and spinach, which add to the balance of the flavors in the dish.
-
-        li Healthful: Many Korean dishes are low in fat and high in vitamins and minerals due to the use of fresh ingredients and fermented foods like kimchi.
-
-        li Variety: Korean cuisine has a diverse range of dishes, from soups and stews to grilled meats and vegetable dishes, there is something for everyone.
+    div.container-sm
+      h2.margin  Menu
+      .row.row-cols-1.row-cols-md-3.g-4
+        each link in menu
+          .col
+            .card(style='width: 18rem;')
+              img.card-img-top(src='/img/'+link.ImageId+'.jpg', alt=link.Name)
+              .card-body
+                h5.card-title #{link.Name} 
+                p.card-text
+                  | #{link.Desc}
+                p.card-text(style='color: red; font-weight:bold')                
+                  | Price: $ #{link.Price} 
+                div(style='display: flex; justify-content:space-around'  )
+                  input(type="number" style='width:50px' placeholder="1")
+                  a.btn.btn-success(href='#') Add to Cart

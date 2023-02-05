@@ -1,21 +1,20 @@
 extends layout 
 
 block main-content 
-  h1.page-title Administer menu links 
-  a(href="/admin/menu/add") + Add link
-  table 
+  h1.page-title Administrator menu links 
+  table.table
     thead 
       tr 
-        th Link 
-        th Operations
+        th Menu Name 
+        th Cooked 
+        th ImageId
+        th Price
+        th Ingredients
     tbody 
       each link in menu 
         tr 
-          td #{link.name}
-          td
-            form(action="/admin/menu/delete")
-              input(type="hidden", name="linkId", value=link._id)
-              button(type="submit") Delete
-            form(action="/admin/menu/edit")
-              input(type="hidden", name="linkId", value=link._id)
-              button(type="submit") Edit
+          td #{link.Name}
+          td #{link.Day}
+          td #{link.ImageId}
+          td #{link.Price}
+          td #{link.Desc}

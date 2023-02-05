@@ -13,19 +13,15 @@ html
 
   body
     header#header 
-      .header-content
-          h2#site-name
+      .container-sm(style="padding:2em;")
+          h2
               a(class='site-name' href="/") Korean Meal Magic
 
       nav#main-navigation 
         ul.nav 
-          each link in uu
+          each listLink in link
             li 
-              a(href=link.path) #{link.name}
-        ul
-          each link in menu
-            li 
-              a(href=link.path) #{link.name}
+              a(href=listLink.path) #{listLink.name}
 
     main#main 
       block main-content 

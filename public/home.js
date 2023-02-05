@@ -40,7 +40,7 @@ window.onload = function () {
         var currentSlide = document.querySelectorAll(".slides li")
         var newSlideCount = currentSlide.length;
 
-        var newWidth = (slideWidth + slideMargin) * newSlideCount - slideMargin + 'px';
+        var newWidth = ((slideWidth + slideMargin) * newSlideCount - slideMargin) + 'px';
         slides.style.width = newWidth;
     };
 
@@ -66,11 +66,13 @@ window.onload = function () {
                 slides.classList.remove('animated');
                 slides.style.left = '0px';
                 currentIndex = 0;
-            }, 500)
+            }, 100)
             setTimeout(() => {
                 slides.classList.add('animated');
 
-            }, 600)
+            }, 105)
+
+
 
         }
 

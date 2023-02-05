@@ -7,54 +7,44 @@ block append scripts
 block main-content 
     h1.margin Canada’s #1 healthful meal kit
     p Welcome! You have arrived at our Korean meal kit website. We offer delicious Korean dishes with the best ingredients and easy cooking methods. Enjoy your shopping!
-    h2.margin Weekly selections
-    div.container.text-center
-      .slide_wrapper 
-        ul.slides 
-          li 
-            img(src="/img/chicken-soup-gf61adee8c_640.jpg", alt="")
-          li 
-            img(src="/img/anh-nguyen-kcA-c3f_3FE-unsplash.jpg", alt="")
-          li 
-            img(src="/img/delaney-van-pmTMvAd8akU-unsplash.jpg", alt="")
-          li 
-            img(src="/img/delicious-ga951b72f0_640.jpg", alt="")
-          li 
-            img(src="/img/ehimetalor-akhere-unuabona-Zh0mYmMBZjQ-unsplash.jpg", alt="")
-          li 
-            img(src="/img/filippo-faruffini-M1M9PVArnlE-unsplash.jpg", alt="")
-          li 
-            img(src="/img/i-g5e3bea22b_640.jpg", alt="")
-      .controls
+    h2.margin(style="color: #AC1818; font-weight:bold;") Weekly selections
+    .container-lg
+      .row.justify-content-md-center
+        .slide_wrapper 
+          ul.slides 
+            each link in menu
+              li      
+                img(src='/img/'+link.ImageId+'.jpg', alt=link.Name)
+
+        .controls
         .btn-group(role='group', aria-label='Basic example')
-          button#prev.btn.btn-primary(type='button') prev
-          button#next.btn.btn-primary(type='button') next
+          button#prev.btn.btn-outline-secondary(type='button') prev
+          button#next.btn.btn-outline-secondary(type='button') next
 
 
-
-    div.container-sm
-      h2.margin  Our Chefs
-      .row.row-cols-1.row-cols-md-3.g-4
-        .col
-          .card
-            img.card-img-top(src="/img/chef-1.jpg", alt="")
-            .card-body
-              h5.card-title Card title
-              p.card-text
-                | This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-        .col
-          .card
-            img.card-img-top(src="/img/chef-2.jpg", alt="")
-            .card-body
-              h5.card-title Card title
-              p.card-text
-                | This is a longer card with supporting text below as a natural lead-in to additional content. This content is a little bit longer.
-        .col
-          .card
-            img.card-img-top(src="/img/chef-3.jpg", alt="")
-            .card-body
-              h5.card-title Card title
-              p.card-text
-                | This is a longer card with supporting text below as a natural lead-in to additional content.
-
-        
+    section
+      div.container-sm
+        h2 Our Chefs
+        .row.row-cols-1.row-cols-md-3.g-4
+          .col
+            .card
+              img.card-img-top(src="/img/chef-1.jpg", alt="pic of chef Beau Chizoba")
+              .card-body
+                h5.card-title Beau Chizoba
+                p.card-text
+                  | Beau Chizoba is a culinary master, blending traditional Korean flavors with modern cooking techniques to create unforgettable dishes. 
+          .col
+            .card
+              img.card-img-top(src="/img/chef-2.jpg", alt="pic of chef Katleho Iniobong")
+              .card-body
+                h5.card-title Katleho Iniobong
+                p.card-text
+                  | Katleho Iniobong is a true artist in the kitchen, combining his deep understanding of Korean food culture with his creative flair to create unique and delicious dishes. 
+          .col
+            .card
+              img.card-img-top(src="/img/chef-3.jpg", alt="pic of chef London Nollaig")
+              .card-body
+                h5.card-title London Nollaig
+                p.card-text
+                  | London Nollaig is a gifted cook with a passion for creating delicious, authentic Korean cuisine. From traditional stews and soups to modern interpretations of classic dishes, London Nollaig's menu is a celebration of the rich flavors. 
+          
