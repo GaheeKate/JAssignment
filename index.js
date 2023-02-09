@@ -2,10 +2,12 @@
 const express = require("express");
 const path = require("path");
 const { MongoClient, ObjectId } = require("mongodb");
+const dotenv = require("dotenv");
 
+dotenv.config();
 //Mongo config stuff
 //"mongodb://127.0.0.1:27017";
-const dbUrl = "mongodb+srv://testdbuser:@cluster0.wguyhoj.mongodb.net/testdb?retryWrites=true&w=majority"
+const dbUrl = process.env.ClientID
 const client = new MongoClient(dbUrl);
 
 //set up Express app
@@ -41,7 +43,8 @@ var links = [
 //PAGE ROUTES
 app.get("/", async (request, response) => {
   menus = await getList();
-  response.render("index", { title: "Home", menu: menus, link: links });
+  chefs = await getChefList();
+  response.render("index", { title: "Home", menu: menus, link: links, chef: chefs });
 
 });
 app.get("/about", async (request, response) => {
@@ -84,20 +87,10 @@ async function getList() {
 }
 
 
-/* Function to update a given link */
-async function editLink(id, link) {
+/* Function to select all documents from chefList. */
+async function getChefList() {
   db = await connection();
-
-  const updateDoc = {
-    $set: {
-      "weight": link.weight, "path": link.path, "name": link.name
-    },
-  };
-
-  console.log(updateDoc)
-  const result = await db.collection("menuLinks").updateOne(id, updateDoc);
-  return result;
-
-
+  var results = db.collection("chefList").find({});
+  list = await results.toArray(); //convert to an array
+  return list;
 }
-

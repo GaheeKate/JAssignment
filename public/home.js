@@ -33,9 +33,6 @@ window.onload = function () {
     };
 
 
-    makeClone();
-
-
     function updateWidth() {
         var currentSlide = document.querySelectorAll(".slides li")
         var newSlideCount = currentSlide.length;
@@ -48,14 +45,6 @@ window.onload = function () {
         var initialTranslateValue = -(slideWidth + slideMargin) * slideCount
         slides.style.transform = `translateX(${initialTranslateValue}px)`
     };
-
-
-    nextBtn.addEventListener('click', () => {
-        moveSlide(currentIndex + 1);
-    })
-    prevBtn.addEventListener('click', () => {
-        moveSlide(currentIndex - 1);
-    })
 
 
     function moveSlide(num) {
@@ -78,6 +67,15 @@ window.onload = function () {
 
     }
 
+    nextBtn.addEventListener('click', () => {
+        moveSlide(currentIndex + 1);
+    })
+    prevBtn.addEventListener('click', () => {
+        moveSlide(currentIndex - 1);
+
+    })
+
+    makeClone();
 }
 
 

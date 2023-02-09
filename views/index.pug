@@ -7,7 +7,7 @@ block append scripts
 block main-content 
     h1.margin Canada’s #1 healthful meal kit
     p Welcome! You have arrived at our Korean meal kit website. We offer delicious Korean dishes with the best ingredients and easy cooking methods. Enjoy your shopping!
-    h2.margin(style="color: #AC1818; font-weight:bold;") Weekly selections
+    h2.margin(style="color:RGB(181, 38, 4) ; font-weight:bold;") Weekly selections
     .container-lg
       .row.justify-content-md-center
         .slide_wrapper 
@@ -24,27 +24,13 @@ block main-content
 
     section
       div.container-sm
-        h2 Our Chefs
+        h2#section_chef Our Chefs
         .row.row-cols-1.row-cols-md-3.g-4
-          .col
-            .card
-              img.card-img-top(src="/img/chef-1.jpg", alt="pic of chef Beau Chizoba")
-              .card-body
-                h5.card-title Beau Chizoba
-                p.card-text
-                  | Beau Chizoba is a culinary master, blending traditional Korean flavors with modern cooking techniques to create unforgettable dishes. 
-          .col
-            .card
-              img.card-img-top(src="/img/chef-2.jpg", alt="pic of chef Katleho Iniobong")
-              .card-body
-                h5.card-title Katleho Iniobong
-                p.card-text
-                  | Katleho Iniobong is a true artist in the kitchen, combining his deep understanding of Korean food culture with his creative flair to create unique and delicious dishes. 
-          .col
-            .card
-              img.card-img-top(src="/img/chef-3.jpg", alt="pic of chef London Nollaig")
-              .card-body
-                h5.card-title London Nollaig
-                p.card-text
-                  | London Nollaig is a gifted cook with a passion for creating delicious, authentic Korean cuisine. From traditional stews and soups to modern interpretations of classic dishes, London Nollaig's menu is a celebration of the rich flavors. 
-          
+          each list in chef
+            .col
+              .card
+                img.card-img-top(src='/img/'+list.ImgId+'.jpg', alt=list.Name)
+                .card-body
+                  h5.card-title #{list.Name}
+                  p.card-text
+                    | #{list.Bio}
